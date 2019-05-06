@@ -1,0 +1,16 @@
+1、首先要用KeyTool工具来生成私匙库：（-alias别名 –validity 3650表示10年有效）
+keytool -genkey -alias privatekey -keysize 1024 -keystore privateKeys.store -validity 3650
+store-pw=eq2213d
+name=minb
+unit=minb
+org=gzs
+city=sz
+prov=gd
+country=cn
+key-pw=esde312w
+2、然后把私匙库内的公匙导出到一个文件当中：
+keytool -export -alias privatekey -file privatecertf.cer -keystore privateKeys.store
+
+3、然后再把这个证书文件导入到公匙库：
+keytool -import -alias publiccert -file privatecertf.cer -keystore publicCerts.store
+pw=werw212
